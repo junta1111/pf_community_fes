@@ -1,45 +1,25 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-# pf_community_fes
+# LIVERS HIGH!!
 
 ## サイト概要
 ### サイトテーマ
 <...>全国各地で開催される音楽フェスの総合コミュニティサイト
 
 ### テーマを選んだ理由
-<...>自分自身もライブやフェスに行く事が好きで、各フェスの参加者同士が情報共有・フリートーク・フェス仲間作りなどが行えるようなサイトがあれば便利だと思い、このテーマにしました
+<...>各フェスの参加者同士が情報共有・フリートーク・フェス仲間作りなどが行うことができ、このサイトに参加することでフェスの参加者同士の繋がりがより強くなり、フェス当日がより楽しいものになることを目的としています
 
 ### ターゲットユーザ
-<...>音楽フェス・ライブが好きな人、参加する人（10代～60代の男女）
+<...>
+-好きな共通の音楽ジャンルやアーティスト、フェスが好きな人同士で交流を持ちたいと思っている人
+-一緒にフェスに行く仲間を作りたいと思っている人
 
 ### 主な利用シーン
-<...>各フェスに参加する者同士がコミュニケーションをとれる場、情報を共有する場として利用
+<...>
+-自身が参加しようと思っているフェスにはどんな人が、どれぐらいの人数が参加するのかを知りたい時
+-参加に向けて楽しみを共有したりフェス仲間を作ったりし、参加者同士でコミュニケーションを取りたい時
+-全国にはどの時期に、どのような音楽フェスがあるのか調べたい時
 
 ## 設計書
-<...>
+<...>https://docs.google.com/spreadsheets/d/12-koeiRR3N8bfBHQY7P145wWNAcsZ015kKRffjM9EU4/edit#gid=885378170
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -47,10 +27,3 @@ Things you may want to cover:
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
--
-## 実装機能リストURL
-https://docs.google.com/spreadsheets/d/12-koeiRR3N8bfBHQY7P145wWNAcsZ015kKRffjM9EU4/edit#gid=885378170
