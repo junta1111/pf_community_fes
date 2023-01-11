@@ -11,19 +11,39 @@
   </head>
 
   <body>
-    <header>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
+    <header class="site-header">
+      <div class="site-header__top">
+        <div class="wrapper site-header__wrapper top">
+          <nav class="navber navber-expand-lg" style="background-color: #000000">
+              <%= link_to root_path, class: "navber-brand" do %>
+               <div class="ml-3 mt-3"><i class="fa-regular fa-cake-slice"></i><h2>LIVERS HIGH!!</h2></div>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+               </button>
+               <% end %>
+          </nav>
+       </div>
+     </div>
+
+     <div class="site-header__bottom">
+       <div class="wrapper site-header__wrapper bottom">
+         <nav class="navber navber-expand-lg" style="background-color: #808080">
+           <% if user_signed_in? %>
+             <li class="nav-item">
+               <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+             </li>
+           <% else %>
+             <li class="nav-item">
+               <%= link_to "新規登録", new_user_registration_path %>
+             </li>
+             <li>
+               <%= link_to "ログイン", new_user_session_path %>
+             </li>
+           <% end %>
+         </nav>
+       </div>
+     </div>
     </header>
     <%= yield %>
   </body>
