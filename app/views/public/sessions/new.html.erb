@@ -19,10 +19,14 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン", class: "btn btn-primary" %>
   </div>
 <% end %>
 
-<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
+<div class="field">
+  <h3>ゲストとしてログインする</h3>
+  <p>ゲストログインでは、コミュニティページの観覧のみご利用いただけます。</p>
+  <%= link_to 'ログイン',  users_guest_sign_in_path, method: :post, class: "btn btn-secondary" %>
+</div>
 
 <%#= render "public/shared/links" %>

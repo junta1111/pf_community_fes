@@ -1,2 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+body{
+  height: calc(100vh - 50px)；
+}

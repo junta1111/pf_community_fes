@@ -6,7 +6,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -29,7 +28,7 @@
 
      <div class="site-header__bottom">
        <div class="wrapper site-header__wrapper bottom">
-         <nav class="navber navber-expand-lg" style="background-color: #808080">
+         <nav class="navber navber-expand-lg" style="background-color: #444444">
            <% if user_signed_in? %>
              <li class="nav-item">
                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
@@ -47,5 +46,16 @@
      </div>
     </header>
     <%= yield %>
+    <div style="position: absolute; bottom: 0; width: 100%;">
+    <footer class="text-white mt-5 pb-2" style="background-color: #000000">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h6 class="text-white mt-2 mb-3">© All rights reserved by JM.Inc.</h6>
+          </div>
+        </div>
+      </div>
+    </footer>
+    </div>
   </body>
 </html>
