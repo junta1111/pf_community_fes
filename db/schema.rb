@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_22_121541) do
+ActiveRecord::Schema.define(version: 2023_01_28_110831) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -82,6 +82,13 @@ ActiveRecord::Schema.define(version: 2023_01_22_121541) do
     t.index ["reset_password_token"], name: "index_communities_on_reset_password_token", unique: true
   end
 
+  create_table "favorite_events", force: :cascade do |t|
+    t.string "event_name"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "goods", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -107,6 +114,10 @@ ActiveRecord::Schema.define(version: 2023_01_22_121541) do
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
     t.boolean "is_deleted", default: false, null: false
+    t.string "nickname"
+    t.string "place"
+    t.integer "sex"
+    t.integer "year"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
