@@ -4,3 +4,19 @@ ja:
         sex:
           women: "女性"
           men: "男性"
+          other: "その他"
+
+ja:
+    enums:
+      user:
+        year:
+          under19: "19歳以下"
+          first20: "20~24歳"
+          second20: "25歳~29歳"
+          first30: "30歳~34歳"
+          second30: "35歳~39歳"
+          first40: "40歳~44歳"
+          second40: "45歳~49歳"
+          first50: "50歳~54歳"
+          second50: "55歳~59歳"
+          over60: "60歳以上"
