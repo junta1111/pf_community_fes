@@ -14,29 +14,27 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-  devise_for :goods
-  devise_for :comments
-  devise_for :communities
 
 
   scope module: :public do
+  root to: 'homes#top'
+  get '/about' => 'homes#about'
+  get 'users/unsubscribe' => 'users#unsubscribe'
+  patch 'users/withdraw' => 'users#withdraw'
   resources :users, only: [:show, :edit, :update]
   resources :communities
+  get 'community/search' => 'communities#search'
+  get 'communities/search_results' => 'communities#search_results'
   resources :comments
   resources :goods
   end
 
-  root to: 'public/homes#top'
-  get '/about' => 'public/homes#about'
-
-
   namespace :admin do
+  root to: 'homes#top'
   resources :users
   resources :communities
   resources :comments
   end
-
-  get 'admin/' => 'admin/homes#top'
 
   #devise_for :admins
   #devise_for :users

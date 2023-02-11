@@ -1,10 +1,10 @@
 class Public::UsersController < ApplicationController
  def show
-  @user = User.find(params[:id])
+  @user = current_user
  end
 
  def edit
-  @user = User.find(params[:id])
+  @user = current_user
   if (3-@user.favorite_events.size) == 3
    @user.favorite_events.build
    @user.favorite_events.build
@@ -19,6 +19,13 @@ class Public::UsersController < ApplicationController
  end
 
  def unsubscribe
+ end
+
+ def withdraw
+    @user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
  end
 
  def good

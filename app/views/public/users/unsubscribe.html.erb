@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10"><br>
+      <h3 class="text-center">退会ページ</h3><br>
+      <table class="table table-sm">
+        <tr>
+          <p class="text-center">退会されますと、ご入力いただいたプロフィール情報やいいね履歴など全てのデータが削除されます。</p>
+          <p class="text-center">また、退会日から３０日間経過するまで同一メールアドレスでLIVERS HIGH!!に再登録する事は出来ません。</p>
+        </tr>
+      </table>
+
+      <div class="text-center">
+        <%= link_to '退会しない', edit_user_path(current_user.id), class: "btn btn-primary" %>
+        <%= link_to '退会する', users_withdraw_path, method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>

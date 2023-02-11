@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+  <div class="col-5"><h3>コミュニティページ一覧・追加</h3></div>
+  </div>
+
+  <div class="row">
+    <%= form_with model: @page, url: admin_communities_path, method: :post do |f| %>
+    <table class="table-borderless">
+        <tr>
+          <td><h4>フェス名</h4></td><br>
+          <td><%= f.text_field :fes_name %></td>
+          <td><%= f.submit '新規登録', class: 'btn btn-success' %></td>
+          <% end %>
+        </tr>
+    </table>
+  </div>
+
+

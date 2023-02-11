@@ -43,8 +43,11 @@
               </div>
             </div>
           </tr>
-          <%= f.submit "更新", class: "btn btn-primary" %>
+          <tr>
+            <td><%= f.submit "更新", class: "btn btn-primary" %></td>
           <% end %>
+            <td><%= link_to '退会', users_unsubscribe_path, class: "btn btn-danger" %></td>
+          </tr>
         </tbody>
       </table>
     </div>

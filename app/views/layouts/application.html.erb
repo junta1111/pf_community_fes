@@ -30,19 +30,61 @@
        <div class="wrapper site-header__wrapper bottom">
          <nav class="navber navber-expand-lg" style="background-color: #444444">
            <% if user_signed_in? %>
+           　<li class="nav-item">
+               <%= link_to community_search_path, class: 'nav-link text-light' do %>
+               <button type="button" class="btn btn-light">フェス検索</button>
+               <% end %>
+              </li>
+
+           　<li class="nav-item">
+               <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
+               <button type="button" class="btn btn-light">マイページ</button>
+               <% end %>
+              </li>
+
+              <li class="nav-item">
+               <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
+               <button type="button" class="btn btn-light">ログアウト</button>
+               <% end %>
+             </li>
+
+           <% elsif admin_signed_in? %>
              <li class="nav-item">
-               <%= link_to 'マイページ', user_path(current_user.id) %>
-             </li>
-             <li>
-               <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-             </li>
+               <%= link_to admin_root_path, class: 'nav-link text-light' do %>
+               <button type="button" class="btn btn-light">フェス一覧</button>
+               <% end %>
+              </li>
+
+              <li class="nav-item">
+               <%= link_to admin_users_path, class: 'nav-link text-light' do %>
+               <button type="button" class="btn btn-light">ユーザー一覧</button>
+               <% end %>
+              </li>
+
+              <li class="nav-item">
+               <%= link_to admin_comments_path, class: 'nav-link text-light' do %>
+               <button type="button" class="btn btn-light">コメント一覧</button>
+               <% end %>
+              </li>
+
+              <li class="nav-item">
+               <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+               <button type="button" class="btn btn-light">ログアウト</button>
+               <% end %>
+              </li>
+
            <% else %>
+           　<li class="nav-item">
+               <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
+               <button type="button" class="btn btn-light">新規登録</button>
+               <% end %>
+             </li>
+
              <li class="nav-item">
-               <%= link_to "新規登録", new_user_registration_path %>
-             </li>
-             <li>
-               <%= link_to "ログイン", new_user_session_path %>
-             </li>
+               <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
+               <button type="button" class="btn btn-light">ログイン</button>
+               <% end %>
+              </li>
            <% end %>
          </nav>
        </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_28_110831) do
+ActiveRecord::Schema.define(version: 2023_02_11_112801) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -53,33 +53,22 @@ ActiveRecord::Schema.define(version: 2023_01_28_110831) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "user_id", null: false
-    t.integer "community_id", null: false
-    t.text "comment", null: false
+    t.integer "user_id"
+    t.integer "community_id"
+    t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_comments_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_comments_on_reset_password_token", unique: true
   end
 
   create_table "communities", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "user_id", null: false
-    t.integer "admin_id", null: false
-    t.string "fes_name", null: false
+    t.integer "user_id"
+    t.integer "admin_id"
+    t.string "fes_name"
+    t.string "venue"
+    t.string "venue_month"
+    t.string "venue_year"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_communities_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_communities_on_reset_password_token", unique: true
   end
 
   create_table "favorite_events", force: :cascade do |t|
@@ -90,17 +79,10 @@ ActiveRecord::Schema.define(version: 2023_01_28_110831) do
   end
 
   create_table "goods", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "user_id", null: false
-    t.integer "comment_id", null: false
+    t.integer "user_id"
+    t.integer "community_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_goods_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_goods_on_reset_password_token", unique: true
   end
 
   create_table "users", force: :cascade do |t|
