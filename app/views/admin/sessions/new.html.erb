@@ -1,9 +1,11 @@
 <div class="container">
   <div class="row">
-  <div class="col-5"><h2>管理者 ログイン</h2></div>
+    <div class="col-5"><h2>管理者 ログイン</h2></div>
+  </div>
 </div>
 
-<div class="row">
+<div class="container">
+  <div class="row">
   <div>
     <%= form_for(resource, as: resource_name, url: admin_session_path) do |f| %>
    <div>
@@ -31,6 +33,7 @@
      <% end %>
    </div>
   </div>
+</div>
 </div>
 
 <%= render "admin/shared/links" %>
