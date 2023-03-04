@@ -1,8 +1,17 @@
 class Public::CommunitiesController < ApplicationController
  def show
-  @community = Community.all.includes(:user).order(created_at: :desc)
+   @community = Community.find(params[:id])#.includes(:user).order(created_at: :desc)
+   @comments = @community.comments
+   @comment = Comment.new
  end
- 
+
+ def create
+   @community = Community.new(community_params)
+   @community.user_id = current_user.id
+   community.save
+   redirect_to community_path
+ end
+
  def search
    @q = Community.ransack(params[:q])
    if params[:q]
@@ -19,4 +28,8 @@ class Public::CommunitiesController < ApplicationController
  end
 
  private
+
+ def community_params
+  params.require(:community).permit(:comment)
+ end
 end
