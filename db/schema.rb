@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2023_02_11_112801) do
 
   create_table "goods", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "community_id"
+    t.integer "comment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

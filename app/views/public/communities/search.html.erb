@@ -10,7 +10,7 @@
         <table class="table-borderless">
             <tr>
                 <div class='input-group'>
-            <h5>ワード検索</h5>  <%= f.search_field :fes_name_cont,
+            <h5>ワード検索</h5>　<%= f.search_field :fes_name_cont,
                                class: 'form-control',
                                placeholder: 'フェス名',
                                type: 'search' %>
@@ -28,7 +28,7 @@
         <%= form_with url: community_search_path, method: :get, local: true do |f| %>
             <tr>
                 <td><h5>開催年月</h5></td>
-                <td><%= f.text_field :venue_year, :size=>'9' %> 年
+                <td><%= f.text_field :venue_year, :size=>'10' %> 年
                     <%= f.hidden_field :venue_month, :value => @communities %>
                     <%= f.select :venue_month, [['1', "1"], ['2', "2"], ['3', "3"], ['4', "4"], ['5', "5"], ['6', "6"], ['7', "7"], ['8', "8"], ['9', "9"], ['10', "10"], ['11', "11"], ['12', "12"], ], {include_blank: '--未選択--'} %> 月
                 </td>
@@ -51,7 +51,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4"><h2>フェス検索結果</h2></div>
+    <div class="col-md-4"><h2>フェス検索</h2></div>
   </div>
 </div>
 

@@ -1,8 +1,13 @@
 class Public::CommunitiesController < ApplicationController
+ def index
+   @user = User.find(params[:format])
+ end
+
  def show
    @community = Community.find(params[:id])#.includes(:user).order(created_at: :desc)
    @comments = @community.comments
    @comment = Comment.new
+
  end
 
  def create

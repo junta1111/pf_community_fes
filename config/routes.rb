@@ -25,8 +25,9 @@ Rails.application.routes.draw do
   resources :communities
   get 'community/search' => 'communities#search'
   get 'communities/search_results' => 'communities#search_results'
-  resources :comments
-  resources :goods
+  resources :comments do
+  resource :goods, only: [:create, :destroy]
+  end
   end
 
   namespace :admin do
