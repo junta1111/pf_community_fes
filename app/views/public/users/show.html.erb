@@ -1,8 +1,12 @@
-<h2>マイページ</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7"><h2>マイページ</h2></div>
+  </div>
+</div>
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-2">
+    <div class="col-lg-3">
   <%= image_tag @user.get_profile_image(100,100) %>
   <h3><%= @user.nickname %></h3>
   <h3><%= @user.place %></h3>
@@ -36,15 +40,26 @@
   <% end %>
   <%= link_to '編集', edit_user_path, class: "btn btn-primary" %>
     </div>
-  </div>
-</div>
 
-<div class="container">
-  <div class="row">
     <div class="col-lg-4">
+      <p><h2>お気に入りフェス</h2></p>
       <% @user.favorite_events.each do |favorite_event| %>
         <h3><%= favorite_event.event_name %></h3>
       <% end %>
     </div>
-  </div>
+
+    <div class="col-lg-5">
+      <p><h2>いいね履歴</h2></p>
+      <% @goods.each do |good| %>
+      <%= link_to communities_path(good.comment.user_id) do %>
+        <%= image_tag good.comment.user.get_profile_image(100,100) %>
+      <% end %>
+      <%= good.comment.user.nickname %>
+      <%= good.comment.community.fes_name %>
+      <%= good.comment.comment %>
+      <%= good.comment.created_at %>
+      <% end %>
+      <p>最新５件まで表示</p><%= link_to '全てのいいねを見る', users_good_path(@user), class: "btn btn-success" %>
+    </div>
+    </div>
 </div>

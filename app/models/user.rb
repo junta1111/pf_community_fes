@@ -19,6 +19,7 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :favorite_events, allow_destroy: true
   has_one_attached :profile_image
+  validates :profile_image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 1..(5.megabytes) }
 
   enum sex: { women: 0, men: 1, other: 2 }
   enum year: { under19: 0, first20: 1, second20: 2, first30: 3, second30: 4, first40: 5, second40: 6, first50: 7, second50: 8, over60: 9 }

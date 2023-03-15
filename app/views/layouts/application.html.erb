@@ -19,9 +19,17 @@
                <div class="ml-3 mt-3"><i class="fa-regular fa-cake-slice"></i><h2>LIVERS HIGH!!</h2></div>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                  <ul class="navber-nav">
+                      <%= link_to about_path, class: 'nav-link text-light' do %>
+                      <button type="button" class="btn btn-light">Concept</button>
+                      <% end %>
                  <span class="navbar-toggler-icon"></span>
                </button>
                <% end %>
+               </ul>
+              </div>
           </nav>
        </div>
      </div>

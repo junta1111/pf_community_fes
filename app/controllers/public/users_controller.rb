@@ -1,6 +1,8 @@
 class Public::UsersController < ApplicationController
  def show
   @user = current_user
+  @goods = Good.where(user_id: @user.id)
+  @good = Good.order(comment: :desc).limit(5)
  end
 
  def edit
@@ -29,17 +31,37 @@ class Public::UsersController < ApplicationController
  end
 
  def good
+  @user = current_user
+  @goods = Good.where(user_id: @user.id)
  end
 
  def update
-  user = User.find(params[:id])
-  user.update!(user_params)
+  @user = User.find(params[:id])
+  if @user.update(user_params)
   redirect_to user_path
+  else
+  if (3-@user.favorite_events.size) == 3
+   @user.favorite_events.build
+   @user.favorite_events.build
+   @user.favorite_events.build
+  elsif (3-@user.favorite_events.size) == 2
+   @user.favorite_events.build
+   @user.favorite_events.build
+  elsif (3-@user.favorite_events.size) == 1
+   @user.favorite_events.build
+  else
+  end
+  render :edit
+  end
  end
 
  private
 
  def user_params
   params.require(:user).permit(:profile_image, :nickname, :place, :sex, :year, favorite_events_attributes: [:event_name, :_destroy, :id])
+ end
+
+ def set_user
+    @user = User.find(params[:id])
  end
 end
