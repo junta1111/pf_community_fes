@@ -4,7 +4,7 @@ class Public::CommunitiesController < ApplicationController
  end
 
  def show
-   @community = Community.find(params[:id])#.includes(:user).order(created_at: :desc)
+   @community = Community.find(params[:id])
    @comments = @community.comments
    @comment = Comment.new
 

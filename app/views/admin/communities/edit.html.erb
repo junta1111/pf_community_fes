@@ -1,9 +1,11 @@
 <div class="container">
   <div class="row">
-  <div class="col-5"><h3>コミュニティページ編集</h3></div>
+    <div class="col-md-4 mx-auto"><h3>コミュニティページ編集</h3></div>
   </div>
+</div>
 
-<div class="row">
+<div class="container">
+  <div class="row">
     <%= form_with model: @communities, url: admin_community_path, method: :patch do |f| %>
     <table class="table-borderless">
         <tr>
@@ -25,3 +27,4 @@
         </tr>
     </table>
   </div>
+</div>

@@ -6,7 +6,8 @@
 
 <div class="container">
     <div class="row">
-        <%= search_form_for @q, url: community_search_path do |f| %>
+        <div class="col-md-4">
+            <%= search_form_for @q, url: community_search_path do |f| %>
         <table class="table-borderless">
             <tr>
                 <div class='input-group'>
@@ -20,11 +21,7 @@
             </div>
             </tr>
         <% end %>
-        </div>
-</div>
 
-<div class="container">
-    <div class="row">
         <%= form_with url: community_search_path, method: :get, local: true do |f| %>
             <tr>
                 <td><h5>開催年月</h5></td>
@@ -45,23 +42,16 @@
 
             </tr>
         </table>
-        <% end %>
-    </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-4"><h2>フェス検索結果</h2></div>
-  </div>
-</div>
-
-<div class="container">
-    <div class="row">
-            <% @communities.each do |community| %>
-        <div class="col-lg-5">
-            <%= community.fes_name %>
         </div>
-        <div class="col-lg-7"><%= link_to  'コミュニティ', community_path(community.id), class: 'btn btn-info' %></div>
         <% end %>
+
+    <div class="col-md-4">
+      <h2>フェス検索結果</h2>
+        <div class="table-borderless">
+            <% @communities.each do |community| %>
+            <%= community.fes_name %>
+            <%= link_to  'コミュニティ', community_path(community.id), class: 'btn btn-info' %>
+        <% end %>
+        </div>
     </div>
 </div>

@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mx-auto"><h2>コメント一覧</h2></div>
+  </div>
+</div>
+
+<div class="container">
+  <% @comments.each do |comment| %>
+    <div class="row">
+     　  <tr>
+          <%= link_to communities_path(comment.user_id) do %>
+          <%= image_tag comment.user.get_profile_image(100,100) %>
+          <% end %>
+          <%= comment.user.nickname %>
+        </tr>
+      </div>
+      <div class="row">
+        <tr>
+          <%= link_to comment.community.fes_name, community_path(comment.community_id) %>
+          <%= comment.comment %>
+          <%= comment.created_at %>
+        </tr>
+          <%= link_to "削除", admin_comment_path(comment.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+      </div>
+    <% end %>
+  </div>
+</div>
