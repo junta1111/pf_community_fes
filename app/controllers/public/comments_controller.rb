@@ -1,4 +1,6 @@
 class Public::CommentsController < ApplicationController
+  before_action :guest_check
+
   def create
     @community = Community.find(comment_params[:community_id])
     @comment = @community.comments.new(comment_params)

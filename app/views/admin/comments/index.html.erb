@@ -7,20 +7,26 @@
 <div class="container">
   <% @comments.each do |comment| %>
     <div class="row">
-     　  <tr>
-          <%= link_to communities_path(comment.user_id) do %>
+      <div class="col-2">
+        <div class="center-block">
+          <%= link_to edit_admin_user_path(comment.user_id) do %>
           <%= image_tag comment.user.get_profile_image(100,100) %>
           <% end %>
           <%= comment.user.nickname %>
-        </tr>
+        </div>
       </div>
-      <div class="row">
-        <tr>
-          <%= link_to comment.community.fes_name, community_path(comment.community_id) %>
-          <%= comment.comment %>
+
+      <div class="col-8">
+        <b><%= comment.community.fes_name %></b>
+        <p><%= comment.comment %></p>
+      </div>
+
+      <div class="col-2">
+        <div style="width: 500px;">
           <%= comment.created_at %>
-        </tr>
-          <%= link_to "削除", admin_comment_path(comment.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+          <%= link_to "削除", admin_comment_path(comment.id), method: :delete, class: 'btn btn-danger', "data-confirm" => "本当に削除しますか？" %>
+        </div>
+      </div>
       </div>
     <% end %>
   </div>

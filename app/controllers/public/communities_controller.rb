@@ -1,4 +1,6 @@
 class Public::CommunitiesController < ApplicationController
+ before_action :guest_check, except: [:show]
+
  def index
    @user = User.find(params[:format])
  end

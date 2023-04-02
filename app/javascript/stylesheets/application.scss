@@ -1,6 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-body{
+body {
   height: calc(100vh - 50px)；
+  //position: relative;
 }
+//.site-footer {
+  //position: absolute;
+  //bottom: 0;
+  //width: 100%;
+  //background-color: #000000;
+  //height: 80px;
+//}

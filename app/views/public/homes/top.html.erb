@@ -1,23 +1,20 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4"><h2>フェス検索</h2></div>
-  </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <%= search_form_for @q, url: community_search_path do |f| %>
+<div>
+    <div style="margin-left: 250px" class="row">
+        <div class="col-4">
+            <h2>フェス検索</h2>
         <table class="table-borderless">
+            <%= search_form_for @q, url: community_search_path do |f| %>
             <tr>
                 <div class='input-group'>
-            <h5>ワード検索</h5>　<%= f.search_field :fes_name_cont,
+                  <div class="mb-5">
+                      <h5>ワード検索</h5>　<%= f.search_field :fes_name_cont,
                                class: 'form-control',
                                placeholder: 'フェス名',
                                type: 'search' %>
               <div class='input-group-append'>
                 <%= f.submit class: 'btn btn-primary' %>
              </div>
+                  </div>
             </div>
             </tr>
         <% end %>
@@ -38,20 +35,23 @@
             <tr>
               <td><%= f.submit "検索", class: 'btn btn-success' %></td>
             </tr>
-            <tr>
-
-            </tr>
+            <% end %>
         </table>
         </div>
-        <% end %>
 
-    <div class="col-md-4">
-      <h2>フェス検索結果</h2>
-        <div class="table-borderless">
-            <% @communities.each do |community| %>
-            <%= community.fes_name %>
-            <%= link_to  'コミュニティ', community_path(community.id), class: 'btn btn-info' %>
-        <% end %>
+    <div class="col-8">
+        <div style="width: 500px;">
+          <h2>フェス検索結果</h2>
+            <div class="table-borderless">
+              <% @communities.each do |community| %>
+                <div class="mb-2">
+                  <%= community.fes_name %>
+                  <div class="text-right">
+                    <%= link_to  'コミュニティ', community_path(community.id), class: 'btn btn-info' %>
+                  </div>
+                </div>
+              <% end %>
+           </div>
         </div>
     </div>
 </div>

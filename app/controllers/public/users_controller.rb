@@ -1,8 +1,9 @@
 class Public::UsersController < ApplicationController
+ before_action :guest_check, except: [:show]
+
  def show
   @user = current_user
-  @goods = Good.where(user_id: @user.id)
-  @good = Good.order(comment: :desc).limit(5)
+  @goods = Good.where(user_id: @user.id).order(comment: :desc).limit(5)
  end
 
  def edit

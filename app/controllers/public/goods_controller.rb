@@ -1,4 +1,6 @@
 class Public::GoodsController < ApplicationController
+  before_action :guest_check
+
   def create
     @good = Good.new(user_id: current_user.id, comment_id: params[:comment_id])
     @good.save
