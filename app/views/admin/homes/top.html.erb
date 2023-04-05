@@ -34,6 +34,7 @@
       <div class="col-lg-5">
         <table class="table-borderless">
         <%= form_with url: admin_root_path, method: :get do |f| %>
+      <tr><h4>検索</h4></tr>
       <tr>
         <td><%= f.label :開催年 %></td>
         <td><%= f.text_field :venue_year, :size=>'7' %></td>

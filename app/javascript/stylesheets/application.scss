@@ -2,13 +2,18 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 body {
-  height: calc(100vh - 50px)；
+//  height: calc(100vh - 50px);
   //position: relative;
 }
-//.site-footer {
-  //position: absolute;
-  //bottom: 0;
-  //width: 100%;
-  //background-color: #000000;
-  //height: 80px;
-//}
+.wrapper-body {
+  position: relative;
+  min-height: calc(100vh - 220px);  // ヘッダーのサイズが変わったら220pxを変える
+  padding-bottom: 50px;             // フッターのサイズが変わったら220pxを変える
+}
+.site-footer {
+  position: absolute;
+  bottom: 0;
+//width: 100%;
+//background-color: #000000;
+//height: 80px;
+}

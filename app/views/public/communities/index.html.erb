@@ -6,70 +6,76 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-4">
+    <div class="col-4">
       <%= image_tag @user.get_profile_image(200,200) %>
       <h3><%= @user.nickname %></h3>
     </div>
-    <div class="col-lg-4">
-      <tbody>
+    <div class="col-8">
+      <table class="table-borderless">
+        <tbody>
         <tr>
-        <td><h5>居住地</h5></td><td><h3><%= @user.place %></h3></td>
-      </tr>
+          <td><h5>居住地</h5></td>
+          <td><h3><%= @user.place %></h3></td>
+        </tr>
 
-      <tr>
-        <td><h5>性別</h5></td>
-        <td><% if @user.sex == "women" %>
-          <h3>女性</h3>
-          <% elsif @user.sex == "men" %>
-          <h3>男性</h3>
-          <% elsif @user.sex == "other" %>
-          <h3>その他</h3>
-          <% end %></td>
-      </tr>
+        <tr>
+          <td><h5>性別</h5></td>
+          <td>
+            <% if @user.sex == "women" %>
+            <h3>女性</h3>
+            <% elsif @user.sex == "men" %>
+            <h3>男性</h3>
+            <% elsif @user.sex == "other" %>
+            <h3>その他</h3>
+            <% end %>
+          </td>
+         </tr>
 
-      <tr>
-        <td><h5>年齢</h5></td>
-        <td>
-          <% if @user.year == "under19" %>
-    <h3>19歳以下</h3>
-  <% elsif @user.year == "first20" %>
-    <h3>20~24歳</h3>
-  <% elsif @user.year == "second20" %>
-    <h3>25歳~29歳</h3>
-  <% elsif @user.year == "first30" %>
-    <h3>30歳~34歳</h3>
-  <% elsif @user.year == "second30" %>
-    <h3>35歳~39歳</h3>
-  <% elsif @user.year == "first40" %>
-    <h3>40歳~44歳</h3>
-  <% elsif @user.year == "second40" %>
-    <h3>45歳~49歳</h3>
-  <% elsif @user.year == "first50" %>
-    <h3>50歳~54歳</h3>
-  <% elsif @user.year == "second50" %>
-    <h3>55歳~59歳</h3>
-  <% elsif @user.year == "over60" %>
-    <h3>60歳以上</h3>
-  <% end %>
-        </td>
-      </tr>
+         <tr>
+           <td><h5>年齢</h5></td>
+           <td>
+             <% if @user.year == "under19" %>
+               <h3>19歳以下</h3>
+             <% elsif @user.year == "first20" %>
+               <h3>20~24歳</h3>
+             <% elsif @user.year == "second20" %>
+               <h3>25歳~29歳</h3>
+             <% elsif @user.year == "first30" %>
+               <h3>30歳~34歳</h3>
+             <% elsif @user.year == "second30" %>
+               <h3>35歳~39歳</h3>
+             <% elsif @user.year == "first40" %>
+               <h3>40歳~44歳</h3>
+             <% elsif @user.year == "second40" %>
+               <h3>45歳~49歳</h3>
+             <% elsif @user.year == "first50" %>
+               <h3>50歳~54歳</h3>
+             <% elsif @user.year == "second50" %>
+               <h3>55歳~59歳</h3>
+             <% elsif @user.year == "over60" %>
+               <h3>60歳以上</h3>
+             <% end %>
+           </td>
+         </tr>
+         </tbody>
+      </table>
+    </div>
   </div>
 </div>
-      </tbody>
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-4">
-      <table class="table-borderless">
-        <tr>
-          <td><h5>お気に入りフェス</h5></td>
-          <td>
-            <% @user.favorite_events.each do |favorite_event| %>
-           <h3><%= favorite_event.event_name %></h3>
-           <% end %>
-          </td>
-        </tr>
-      </table>
+    <div class="col-md-2">
+      <tr>
+        <td><h5>お気に入りフェス</h5></td>
+      </tr>
     </div>
+  </div>
+  <div class="row">
+    <% @user.favorite_events.each do |favorite_event| %>
+      <div class="col-md-4">
+        <h3><%= favorite_event.event_name %></h3>
+      </div>
+    <% end %>
   </div>
 </div>

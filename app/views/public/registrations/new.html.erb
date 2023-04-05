@@ -1,40 +1,55 @@
-<h2>新規会員登録</h2>
-
-  <%= form_with model: @user, url: registration_path(resource_name) do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :"氏名" %><br>
-    性<%= f.text_field :last_name %>
-    名<%= f.text_field :first_name %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mx-auto"><h2>新規会員登録</h2></div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :"氏名(カナ)" %><br>
-    セイ<%= f.text_field :last_name_kana %>
-    メイ<%= f.text_field :first_name_kana %>
-  </div>
+<%= form_with model: @user, url: registration_path(resource_name) do |f| %>
+<%= render "public/shared/error_messages", resource: resource %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-11">
+      <table class="table-borderless">
+        <tbody>
+          <tr>
+            <td><h5><%= f.label :"氏名" %></h5></td><br>
+            <td>性<%= f.text_field :last_name, :size=>"22" %></td>
+            <td>名<%= f.text_field :first_name, :size=>"22" %></td>
+          </tr>
 
-  <div class="field">
-    <%= f.label :"メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+          <tr>
+            <td><h5><%= f.label :"氏名(カナ)" %></h5></td><br>
+            <td>セイ<%= f.text_field :last_name_kana,:size=>"20" %></td>
+            <td>メイ<%= f.text_field :first_name_kana, :size=>"20" %></td>
+          </tr>
 
-  <div class="field">
-    <%= f.label :"ログインパスワード(6文字以上)" %>
-    <% if @minimum_password_length %>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+          <tr>
+            <td><h5><%= f.label :"メールアドレス" %></h5></td><br>
+            <td><%= f.email_field :email, :size=>"30", autofocus: true, autocomplete: "email" %></td>
+          </tr>
 
-  <div class="field">
-    <%= f.label :"ログインパスワード(確認用)" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+          <tr>
+            <td><h5><%= f.label :"ログインパスワード(6文字以上)" %></h5></td>
+            <td>
+              <% if @minimum_password_length %>
+              <% end %>
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </td>
+          </tr>
 
-  <div class="actions">
-    <%= f.submit "登録", class: "btn btn-primary" %>
+          <tr>
+            <td><h5><%= f.label :"ログインパスワード(確認用)" %></h5></td>
+            <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+          </tr>
+
+          <tr>
+            <td><%= f.submit "登録", class: "btn btn-primary" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-<% end %>
+</div>
 
 <%#= render "public/shared/links" %>
