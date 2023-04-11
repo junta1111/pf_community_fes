@@ -6,7 +6,8 @@
 
 <div class="container">
   <div class="row">
-    <%= form_with model: @community, url: admin_communities_path, method: :post do |f| %>
+    <div class="pd-3">
+      <%= form_with model: @community, url: admin_communities_path, method: :post do |f| %>
     <table class="table-borderless">
         <tr>
           <td><h5>開催年</h5></td>
@@ -26,6 +27,7 @@
           <% end %>
         </tr>
     </table>
+    </div>
   </div>
 </div>
 
@@ -33,30 +35,34 @@
     <div class="row">
       <div class="col-lg-5">
         <table class="table-borderless">
-        <%= form_with url: admin_root_path, method: :get do |f| %>
-      <tr><h4>検索</h4></tr>
-      <tr>
-        <td><%= f.label :開催年 %></td>
-        <td><%= f.text_field :venue_year, :size=>'7' %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :開催月 %></td>
-        <td><%= f.hidden_field :venue_month, :value => @communities %>
-            <%= f.select :venue_month, [['1月', "1"], ['2月', "2"], ['3月', "3"], ['4月', "4"], ['5月', "5"], ['6月', "6"], ['7月', "7"], ['8月', "8"], ['9月', "9"], ['10月', "10"], ['11月', "11"], ['12月', "12"], ], {include_blank: '--未選択--'} %></td>
-      </tr>
-      <tr>
-        <td><%= f.submit '表示', class: 'btn btn-primary' %></td>
-      </tr>
-    <% end %>
-      </table>
+          <div class="p-3">
+            <%= form_with url: admin_root_path, method: :get do |f| %>
+              <tr><h4>検索</h4></tr>
+                <tr>
+                  <td><%= f.label :開催年 %></td>
+                  <td><%= f.text_field :venue_year, :size=>'7' %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :開催月 %></td>
+                  <td><%= f.hidden_field :venue_month, :value => @communities %>
+                      <%= f.select :venue_month, [['1月', "1"], ['2月', "2"], ['3月', "3"], ['4月', "4"], ['5月', "5"], ['6月', "6"], ['7月', "7"], ['8月', "8"], ['9月', "9"], ['10月', "10"], ['11月', "11"], ['12月', "12"], ], {include_blank: '--未選択--'} %></td>
+                </tr>
+                <tr>
+                  <td><%= f.submit '表示', class: 'btn btn-primary' %></td>
+                </tr>
+            <% end %>
+          </div>
+       </table>
       </div>
 
       <div class="col-lg-7">
-        <% if @year.present? && @month.present? %>
+        <div class="p-3">
+          <% if @year.present? && @month.present? %>
           <h3><%= @year %>年<%= @month %>月開催のフェス一覧</h3>
         <% else %>
           <h3>フェス一覧</h3>
         <% end %>
+        </div>
         <table class="table-borderless">
           <% @communities.each do |community| %>
             <tr>

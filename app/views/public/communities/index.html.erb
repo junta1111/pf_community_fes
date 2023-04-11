@@ -7,12 +7,16 @@
 <div class="container">
   <div class="row">
     <div class="col-4">
-      <%= image_tag @user.get_profile_image(200,200) %>
-      <h3><%= @user.nickname %></h3>
+      <div class="text-center">
+        <%= image_tag @user.get_profile_image(200,200) %>
+        <h3><%= @user.nickname %></h3>
+      </div>
     </div>
+
     <div class="col-8">
       <table class="table-borderless">
-        <tbody>
+        <div class="p-3">
+          <tbody>
         <tr>
           <td><h5>居住地</h5></td>
           <td><h3><%= @user.place %></h3></td>
@@ -58,6 +62,7 @@
            </td>
          </tr>
          </tbody>
+        </div>
       </table>
     </div>
   </div>
@@ -65,16 +70,18 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-2">
-      <tr>
+    <div class="col-3">
+      <div class="p-3">
+        <tr>
         <td><h5>お気に入りフェス</h5></td>
       </tr>
+      </div>
     </div>
   </div>
   <div class="row">
     <% @user.favorite_events.each do |favorite_event| %>
-      <div class="col-md-4">
-        <h3><%= favorite_event.event_name %></h3>
+      <div class="col-4">
+          <h3><%= favorite_event.event_name %></h3>
       </div>
     <% end %>
   </div>

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
   </head>
 
   <body style="margin-top: -16px"> <!-- ヘッダの前に空白が入っているので消すためにmargin-top: -16px;をしている -->
@@ -16,25 +17,25 @@
         <div class="wrapper site-header__wrapper top">
           <nav class="navber navber-expand-lg" style="background-color: #000000">
               <%= link_to root_path, class: "navber-brand" do %>
-               <div class="ml-3 mt-3"><i class="fa-regular fa-cake-slice"></i><h2>LIVERS HIGH!!</h2></div>
+               <div class="ml-3 mt-3" style="width: 210px;"><i class="fa-regular fa-cake-slice"></i><h2><%= image_tag '/logo/logo.jpg', size: '210x38' %></h2></div>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" style="display: inline-block;">
 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                   <ul class="navber-nav">
-                      <%= link_to about_path, class: 'nav-link text-light' do %>
+                    <%= link_to about_path, class: 'nav-link text-light', style: 'display: inline-flex; float: right; margin-right: 20px; position: relative; top: -48px;' do %>
                       <button type="button" class="btn btn-light">Concept</button>
-                      <% end %>
-                 <span class="navbar-toggler-icon"></span>
+                    <% end %>
+                    <span class="navbar-toggler-icon"></span>
+                  </ul>
+                </div>
                </button>
-               <% end %>
-               </ul>
-              </div>
+              <% end %>
           </nav>
        </div>
      </div>
 
-     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #444444">
+     <nav class="navbar navbar-expand-lg navbar-light" style=" width: 100%; position: relative; top: -40px; background-color: #444444">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

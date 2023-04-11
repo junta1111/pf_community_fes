@@ -33,7 +33,8 @@ class Public::UsersController < ApplicationController
 
  def good
   @user = current_user
-  @goods = Good.where(user_id: @user.id)
+  @comments = Comment.where(id: Good.where(user_id: @user.id).pluck(:comment_id))
+  @path = request.path_info
  end
 
  def update

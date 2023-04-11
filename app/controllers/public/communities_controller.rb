@@ -9,7 +9,8 @@ class Public::CommunitiesController < ApplicationController
    @community = Community.find(params[:id])
    @comments = @community.comments
    @comment = Comment.new
-
+   @user = current_user
+   @path = request.path_info
  end
 
  def create

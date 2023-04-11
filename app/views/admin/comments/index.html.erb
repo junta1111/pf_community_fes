@@ -8,9 +8,9 @@
   <% @comments.each do |comment| %>
     <div class="row">
       <div class="col-2">
-        <div class="center-block">
+        <div class="text-center">
           <%= link_to edit_admin_user_path(comment.user_id) do %>
-          <%= image_tag comment.user.get_profile_image(100,100) %>
+          <%= image_tag comment.user.get_profile_image(100,100), size: '120x120' %>
           <% end %>
           <%= comment.user.nickname %>
         </div>

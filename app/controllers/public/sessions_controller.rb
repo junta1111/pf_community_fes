@@ -34,7 +34,7 @@ class Public::SessionsController < Devise::SessionsController
 
   def guest_check
     if current_user == User.find(1)
-      redirect_to root_path,notice: "このページを見るには会員登録が必要です。"
+      redirect_to root_path, notice: "このページを見るには会員登録が必要です。"
     end
   end
 

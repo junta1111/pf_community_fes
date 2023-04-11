@@ -5,6 +5,11 @@ class Public::CommentsController < ApplicationController
     @community = Community.find(comment_params[:community_id])
     @comment = @community.comments.new(comment_params)
     @comment.user_id = current_user.id
+    if params[:comment][:comment].blank?
+      flash[:danger] = 'フォームにコメントが無いと送信できません。'
+      redirect_to community_path(@community)
+      return
+    end
 
     if @comment.save!
       flash[:success] = 'コメントを投稿しました'
@@ -13,6 +18,13 @@ class Public::CommentsController < ApplicationController
       flash[:danger] = 'コメント投稿に失敗しました'
       redirect_back(fallback_location: community_path)
     end
+  end
+
+  def destroy
+    comment = Comment.find(params[:id])
+    @community = comment.community
+    comment.destroy
+    redirect_to community_path(@community)
   end
 
   private

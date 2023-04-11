@@ -2,14 +2,30 @@ class Public::GoodsController < ApplicationController
   before_action :guest_check
 
   def create
-    @good = Good.new(user_id: current_user.id, comment_id: params[:comment_id])
+    @user = current_user
+    @good = Good.new(user_id: @user.id, comment_id: params[:comment_id])
     @good.save
-    redirect_to community_path(@good.user_id)
+    comment = Comment.find(params[:comment_id])
+    @path = params[:path]
+    if @path == "/users/good"
+    @comments = Comment.where(id: Good.where(user_id: @user.id).pluck(:comment_id))
+    else
+    @comments = comment.community.comments
+    #redirect_to community_path(@good.comment.community)
+    end
   end
 
   def destroy
-    @good = Good.find_by(user_id: current_user.id, comment_id: params[:comment_id])
+    @user = current_user
+    @good = Good.find_by(user_id: @user.id, comment_id: params[:comment_id])
     @good.destroy
-    redirect_to community_path(@good.user_id)
+    comment = Comment.find(params[:comment_id])
+    @path = params[:path]
+    if @path == "/users/good"
+    @comments = Comment.where(id: Good.where(user_id: @user.id).pluck(:comment_id))
+    else
+    @comments = comment.community.comments
+    #redirect_to community_path(@good.comment.community)
+    end
   end
 end

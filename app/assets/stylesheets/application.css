@@ -17,3 +17,6 @@ body{
   height: calc(100vh - 50px);
 }
 
+header, h1, nav, .list-comment {
+  font-family: 'Kaushan', cursive, sans-serif;
+}
