@@ -3,7 +3,7 @@ class Public::UsersController < ApplicationController
 
  def show
   @user = current_user
-  @goods = Good.where(user_id: @user.id).order(comment: :desc).limit(5)
+  @comments = @user.good_comments.joins(:goods).distinct.order('goods.created_at': :desc).limit(5)
  end
 
  def edit

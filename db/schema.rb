@@ -61,8 +61,6 @@ ActiveRecord::Schema.define(version: 2023_02_11_112801) do
   end
 
   create_table "communities", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "admin_id"
     t.string "fes_name"
     t.string "venue"
     t.string "venue_month"
@@ -100,7 +98,6 @@ ActiveRecord::Schema.define(version: 2023_02_11_112801) do
     t.string "place"
     t.integer "sex"
     t.integer "year"
-    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

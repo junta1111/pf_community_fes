@@ -58,18 +58,18 @@
     <div class="col-5">
       <div class="text-center">
         <p><h2>いいね履歴</h2></p>
-      　<% @goods.each do |good| %>
+      　<% @comments.each do |comment| %>
           <div class="mb-2">
             <tr>
               <td>
-                <%= link_to communities_path(good.comment.user_id) do %>
-                <%= image_tag good.comment.user.get_profile_image(100,100) %>
+                <%= link_to communities_path(comment.user_id) do %>
+                <%= image_tag comment.user.get_profile_image(100,100) %>
                 <% end %>
-                <p><%= good.comment.user.nickname %></p>
-                <tr><b><%= good.comment.community.fes_name %></b></tr>
-                <p><%= good.comment.comment %></p>
+                <p><%= comment.user.nickname %></p>
+                <tr><b><%= comment.community.fes_name %></b></tr>
+                <p><%= comment.comment %></p>
               </td>
-            <%= good.comment.created_at.to_s(:datetime_jp) %>
+            <%= comment.created_at.to_s(:datetime_jp) %>
             </tr>
           </div>
         <% end %>

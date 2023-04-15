@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :communities
   has_many :favorite_events, dependent: :destroy
   has_many :goods, dependent: :destroy
+  has_many :good_comments, through: :goods, source: :comment
 
   accepts_nested_attributes_for :favorite_events, allow_destroy: true
   has_one_attached :profile_image
