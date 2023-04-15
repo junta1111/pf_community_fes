@@ -3,9 +3,9 @@
         <div class="col-2">
           <div class="text-center">
             <%= link_to communities_path(comment.user_id) do %>
-            <%= image_tag comment.user.get_profile_image(100,100), size: '120x120' %>
+            <%= image_tag comment.user.get_profile_image(100,100), size: '110x110' %>
             <% end %>
-            <%= comment.user.nickname %>
+            <p><%= comment.user.nickname %></p>
           </div>
         </div>
 
@@ -16,24 +16,24 @@
 
       <div class="col-2">
           <div style="width: 500px;">
-              <%= comment.created_at %>
-          <% if comment.gooded_by?(current_user) %>
+            <%= comment.created_at.to_s(:datetime_jp) %>
+            <% if comment.gooded_by?(current_user) %>
           <p>
             <%= link_to comment_goods_path(comment,path: path), class: 'btn btn-outline-primary', method: :delete, remote: true do %>
-           ♥<%= comment.goods.count %> いいね
-          <% end %>
-         </p>
+              ♥<%= comment.goods.count %> いいね
+            <% end %>
+          </p>
           <% else %>
-         <p>
-          <%= link_to comment_goods_path(comment,path: path), class: 'btn btn-outline-primary', method: :post, remote: true do %>
-          ♡<%= comment.goods.count %> いいね
-          <% end %>
-         </p>
-        <% end %>
-        <% if comment.user == current_user %>
-          <%= link_to "削除", comment_path(comment.id), method: :delete, class: 'btn btn-outline-danger btn-sm' %>
-        <% end %>
-        </div>
-        </div>
+          <p>
+            <%= link_to comment_goods_path(comment,path: path), class: 'btn btn-outline-primary', method: :post, remote: true do %>
+              ♡<%= comment.goods.count %> いいね
+            <% end %>
+          </p>
+         <% end %>
+         <% if comment.user == current_user %>
+           <%= link_to "削除", comment_path(comment.id), method: :delete, class: 'btn btn-outline-danger btn-sm' %>
+         <% end %>
+         </div>
       </div>
-     <% end %>
+      </div>
+<% end %>

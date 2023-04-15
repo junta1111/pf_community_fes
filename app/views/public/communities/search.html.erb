@@ -1,21 +1,17 @@
-<div>
-    <div style="margin-left: 250px" class="row">
-        <div class="col-4">
-            <h2>フェス検索</h2>
+  <div style="margin-left: 250px" class="row">
+    <div class="col-4">
+      <h2>フェス検索</h2>
         <table class="table-borderless">
-            <%= search_form_for @q, url: community_search_path do |f| %>
+          <%= search_form_for @q, url: community_search_path do |f| %>
             <tr>
               <div class='input-group'>
                 <div class="mb-5">
-                  <h5>ワード検索</h5>　<%= f.search_field :fes_name_cont,
-                               class: 'form-control',
-                               placeholder: 'フェス名',
-                               type: 'search' %>
-              <div class='input-group-append'>
-                <%= f.submit class: 'btn btn-primary' %>
-             </div>
+                  <b>ワード検索</b><%= f.search_field :fes_name_cont, class: 'form-control', placeholder: 'フェス名', type: 'search' %>
+                    <div class='input-group-append'>
+                      <%= f.submit class: 'btn btn-primary' %>
+                    </div>
                 </div>
-            </div>
+              </div>
             </tr>
         <% end %>
 
@@ -37,7 +33,7 @@
             </tr>
             <% end %>
         </table>
-        </div>
+    </div>
 
     <div class="col-8">
         <div style="width: 500px;">

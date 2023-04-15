@@ -6,38 +6,37 @@
 
 <div class="container">
   <table class="table table-bordered">
- <thead>
-   <tr>
-     <th>会員ID</th>
-     <th>氏名</th>
-     <th>メールアドレス</th>
-     <th>会員ステータス</th>
-   </tr>
- </thead>
+    <thead>
+      <tr>
+        <th>会員ID</th>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+        <th>会員ステータス</th>
+      </tr>
+    </thead>
 
- <tbody>
-  <% @users.each do |user| %>
-  <tr>
-    <td>
-      <%= user.id %>
-    </td>
-    <td>
-      <%= link_to user.full_name, edit_admin_user_path(user.id) %>
-    </td>
-    <td>
-      <%= user.email %>
-    </td>
-    <td>
-      <% if user.is_deleted == false %>
-      <%= "有効" %>
-      <% else %>
-      <%= "退会" %>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= user.id %>
+          </td>
+          <td>
+            <%= link_to user.full_name, edit_admin_user_path(user.id) %>
+          </td>
+          <td>
+            <%= user.email %>
+          </td>
+          <td>
+            <% if user.is_deleted == false %>
+              <%= "有効" %>
+            <% else %>
+              <%= "退会" %>
+            <% end %>
+          </td>
       <% end %>
-    </td>
-    <% end %>
-    <%= paginate @users %>
-  </tr>
- </tbody>
-
+       <%= paginate @users %>
+       </tr>
+    </tbody>
  </table>
 </div>

@@ -23,7 +23,7 @@
 
       <div class="col-2">
         <div style="width: 500px;">
-          <%= comment.created_at %>
+          <%= comment.created_at.to_s(:datetime_jp) %>
           <%= link_to "削除", admin_comment_path(comment.id), method: :delete, class: 'btn btn-danger', "data-confirm" => "本当に削除しますか？" %>
         </div>
       </div>

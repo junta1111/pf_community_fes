@@ -10,6 +10,5 @@ class Admin::HomesController < ApplicationController
     else
       @communities = Community.all
     end
-    #@communities = Community.where(venue_month: Date.today.strftime('%m')).where(venue_year: Date.today.strftime('%Y'))
   end
 end
