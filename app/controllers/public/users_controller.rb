@@ -17,7 +17,6 @@ class Public::UsersController < ApplicationController
    @user.favorite_events.build
   elsif (3-@user.favorite_events.size) == 1
    @user.favorite_events.build
-  else
   end
  end
 
